@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
@@ -16,19 +18,19 @@ public class UserResponse {
     private Long id;
     private String email;
     private String nickname;
-    private String image;
     private String description;
+    private List<String> imageUrls;
     private Gender gender;
     private int age;
     private Role role;
 
-    public static UserResponse of(User user) {
+    public static UserResponse of(User user, List<String> imageUrls) {
         return new UserResponse(
             user.getId(),
             user.getEmail(),
             user.getNickname(),
-            user.getImage(),
             user.getDescription(),
+            imageUrls,
             user.getGender(),
             user.getAge(),
             user.getRole()

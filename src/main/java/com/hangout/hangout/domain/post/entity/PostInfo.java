@@ -34,8 +34,6 @@ public class PostInfo extends BaseEntity {
     @JoinColumn(name = "STATUS_ID")
     private Status status;
 
-    private String postImage; // 이미지 가져올 url
-
     @Enumerated(EnumType.STRING)
     @Column(name = "TRAVEL_GENDER", nullable = false)
     private Gender travelGender; // 성별
@@ -58,13 +56,12 @@ public class PostInfo extends BaseEntity {
     private Date travelDateEnd; // 여행 종료 날짜
 
     @Builder
-    public PostInfo(Post post, Map map, Status status, String postImage,
+    public PostInfo(Post post, Map map, Status status,
                     Gender travelGender, String travelAge, String travelAt, int travelMember,
                     Date travelDateStart, Date travelDateEnd){
         this.post = post;
         this.map = map;
         this.status = status;
-        this.postImage = postImage;
         this.travelGender = travelGender;
         this.travelAge = travelAge;
         this.travelAt = travelAt;

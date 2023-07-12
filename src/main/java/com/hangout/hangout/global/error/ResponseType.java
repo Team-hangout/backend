@@ -45,8 +45,12 @@ public enum ResponseType {
 
     // ABUSE REPORT
     COMMENT_ABUSE_REPORT_NOT_FOUND("R001", "해당 댓글 신고건을 찾을 수 없습니다."),
-    POST_ABUSE_REPORT_NOT_FOUND("R002", "해당 게시글 신고건을 찾을 수 없습니다.");
+    POST_ABUSE_REPORT_NOT_FOUND("R002", "해당 게시글 신고건을 찾을 수 없습니다."),
 
+    // IMAGE
+    INVALID_FILE_TYPE("I001", "해당 파일은 지원하는 파일 형식이 아닙니다."),
+    FILE_NOT_UPLOAD("I002","이미지를 업로드하지 않았습니다."),
+    MAX_UPLOAD_SIZE_EXCEEDED("I003", "이미지 용량이 초과되었습니다.");
 
     private final String code;
     private final String message;

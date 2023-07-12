@@ -38,7 +38,6 @@ public class SignUpRequest {
     @NotNull(message = "나이는 필수 항목입니다.")
     private int age;
 
-    private String image;
 
     @Length(max = 100, message = "소개글은 최대 10자를 넘을 수 없습니다.")
     private String description;
@@ -51,7 +50,6 @@ public class SignUpRequest {
             .password(passwordEncoder.encode(password))
             .gender(gender)
             .age(age)
-            .image(image)
             .role(Role.USER)
             .description(description)
             .build();

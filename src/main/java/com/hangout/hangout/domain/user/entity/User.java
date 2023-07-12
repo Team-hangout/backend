@@ -43,7 +43,6 @@ public class User extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String nickname;
 
-    private String image;
 
     private String description;
 

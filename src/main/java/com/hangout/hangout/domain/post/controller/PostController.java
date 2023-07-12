@@ -1,9 +1,9 @@
 package com.hangout.hangout.domain.post.controller;
 
-
 import static com.hangout.hangout.global.common.domain.entity.Constants.API_PREFIX;
 import static com.hangout.hangout.global.error.ResponseEntity.successResponse;
 
+import com.hangout.hangout.domain.image.service.ImageFileUploadService;
 import com.hangout.hangout.domain.like.dto.LikeRequest;
 import com.hangout.hangout.domain.like.service.LikeService;
 import com.hangout.hangout.domain.post.PostMapper;
@@ -36,11 +36,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(API_PREFIX +"/post")
+@RequestMapping(API_PREFIX + "/post")
 public class PostController {
 
     private final PostService postService;
     private final PostTagService postTagService;
+    private final ImageFileUploadService imageFileUploadService;
     private final LikeService likeService;
     private final PostMapper mapper;
 
@@ -63,10 +64,13 @@ public class PostController {
     @ApiResponse(responseCode = "201", description = "OK")
     public ResponseEntity<PostResponse> getPost(@PathVariable Long postId, @CurrentUser User user) {
         List<String> tagsByPost = postTagService.getTagsByPost(postService.findPostById(postId));
+        List<String> imagesByPost = imageFileUploadService.getImagesByPost(postService.findPostById(postId));
 
         postService.updatePostHits(postId, user);
         int likeStatus = postService.findLike(user, postId);
-        return successResponse(mapper.of(postService.findPostById(postId), tagsByPost, likeStatus));
+
+        return successResponse(mapper.of(postService.findPostById(postId),tagsByPost,imagesByPost,likeStatus));
+
 
     }
 

@@ -17,6 +17,7 @@ public class PostListResponse {
     private final String title;
     private final String nickname;
     private final List<String> tags;
+    private final List<String> imageUrls;
     private final String statusType;
     private final Gender travelGender;
     private final String travelAge;

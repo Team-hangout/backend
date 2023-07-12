@@ -33,7 +33,7 @@ public class UserService {
             .email(user.getEmail())
             .password(user.getPassword())
             .nickname(request.getNickname() != null ? request.getNickname() : user.getNickname())
-            .image(request.getImage() != null ? request.getImage() : user.getImage())
+            //.image(request.getImage() != null ? request.getImage() : user.getImage())
             .description(
                 request.getDescription() != null ? request.getDescription() : user.getDescription())
             .gender(request.getGender() != null ? request.getGender() : user.getGender())

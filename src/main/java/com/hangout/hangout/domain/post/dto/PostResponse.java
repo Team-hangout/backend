@@ -20,6 +20,7 @@ public class PostResponse {
     private final String nickname;
     private final String context;
     private final List<String> tags;
+    private final List<String> imageUrls;
     private final int likeStatus; // 좋아요가 되어있는 지 확인 // 좋아요 = 1 , 아님 = 0
     private final String statusType;
     private final Gender travelGender;

@@ -1,5 +1,7 @@
 package com.hangout.hangout.domain.report.controller;
 
+import static com.hangout.hangout.global.common.domain.entity.Constants.API_PREFIX;
+
 import com.hangout.hangout.domain.report.dto.CommentReportRequest;
 import com.hangout.hangout.domain.report.dto.CommentReportResponse;
 import com.hangout.hangout.domain.report.dto.PostReportRequest;
@@ -24,7 +26,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/report")
+@RequestMapping(API_PREFIX + "/report")
 @RequiredArgsConstructor
 public class ReportController {
 

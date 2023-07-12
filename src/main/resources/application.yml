@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hangout?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/hangout?rewriteBatchedStatements=true
     username:
     password:
 
@@ -33,6 +33,12 @@ spring:
     import:
       - application-oauth.yml
 
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
 application:
   security:
     jwt:
@@ -40,6 +46,18 @@ application:
       expiration: 86400000 # a day
       refresh-token:
         expiration: 604800000 # 7 days
+
+cloud:
+  aws:
+    credentials:
+      access-key: ## accessKey
+      secret-key: ## secretKey
+    region:
+      static: ap-northeast-2
+    s3:
+      bucket: hangoutbucket2
+    stack:
+      auto: false
 
 # http url 괄호 허용
 server:
